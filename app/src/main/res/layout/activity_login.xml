@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    >
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:src="@drawable/icon_home"
+      android:layout_marginTop="120dp"
+      android:layout_marginBottom="50dp"
+    />
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="20dp"
+    >
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên đăng nhập"
+        android:id="@+id/edUserName"
+      />
+  </com.google.android.material.textfield.TextInputLayout>
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="20dp"
+      app:passwordToggleEnabled="true"
+      app:passwordToggleContentDescription="hihi"
+      app:passwordToggleTint="#999"
+
+      >
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mật khẩu"
+        android:id="@+id/edPassword"
+        android:inputType="textPassword"
+        android:maxLines="1"
+
+        />
+  </com.google.android.material.textfield.TextInputLayout>
+  <CheckBox
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Lưu mật khẩu"
+      android:id="@+id/chkRememberPass"
+      android:layout_marginBottom="20dp"
+    />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_marginTop="15dp"
+      android:weightSum="2"
+    >
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin"
+        android:layout_weight="1"
+        android:text="Đăng nhập"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btCancel"
+        android:layout_weight="1"
+        android:text="Hủy"
+        />
+  </LinearLayout>
+
+</LinearLayout>
