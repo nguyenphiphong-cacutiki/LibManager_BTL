@@ -22,7 +22,7 @@ public class ThanhVienDAO {
     }
     public long insert(ThanhVien obj){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("maTV", obj.getMaTV());
+//        contentValues.put("maTV", obj.getMaTV());
         contentValues.put("hoTen", obj.getHoTen());
         contentValues.put("namSinh", obj.getNamSinh());
         return db.insert("ThanhVien", null, contentValues);
@@ -45,7 +45,7 @@ public class ThanhVienDAO {
         while(c.moveToNext()){
             ThanhVien obj = new ThanhVien();
 //            Log.d("@@@-***", c.getColumnIndex("maTV")+" - columnIndex");
-            Log.d("@@@-***", c.getString(0));
+//            Log.d("@@@-***", c.getString(0));
 
             obj.setMaTV(Integer.parseInt(c.getString(0)));
             obj.setHoTen(c.getString(c.getColumnIndex("hoTen")));

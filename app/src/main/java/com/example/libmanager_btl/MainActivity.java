@@ -21,6 +21,9 @@ import android.widget.Toast;
 import com.example.libmanager_btl.dao.DemoDb;
 import com.example.libmanager_btl.database.DbHelper;
 import com.example.libmanager_btl.fragment.ChangePassFragment;
+import com.example.libmanager_btl.fragment.LoaiSachFragment;
+import com.example.libmanager_btl.fragment.SachFragment;
+import com.example.libmanager_btl.fragment.ThanhVienFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,10 +66,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Quản lý phiếu mượn", Toast.LENGTH_SHORT).show();
                 }else if(item.getItemId() == R.id.nav_LoaiSach){
                     setTitle("Quản lý loại sách");
+                    LoaiSachFragment loaiSachFragment = new LoaiSachFragment();
+                    manager.beginTransaction()
+                            .replace(R.id.flContent, loaiSachFragment)
+                            .commit();
                 }else if(item.getItemId() == R.id.nav_Sach){
                     setTitle("Quản lý sách");
+                    SachFragment sachFragment = new SachFragment();
+                    manager.beginTransaction()
+                            .replace(R.id.flContent, sachFragment)
+                            .commit();
                 }else if(item.getItemId() == R.id.nav_ThanhVien){
                     setTitle("Quản lý thành viên");
+                    ThanhVienFragment thanhVienFragment = new ThanhVienFragment();
+                    manager.beginTransaction()
+                            .replace(R.id.flContent, thanhVienFragment)
+                            .commit();
                 }else if(item.getItemId() == R.id.sub_Top){
                     setTitle("Top 10 sách cho thuê nhiều nhất");
                 }else if(item.getItemId() == R.id.sub_DoanhThu){

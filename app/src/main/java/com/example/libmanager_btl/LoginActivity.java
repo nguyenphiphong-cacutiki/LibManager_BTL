@@ -121,11 +121,18 @@ public class LoginActivity extends AppCompatActivity {
                     "('Trần Văn Ngọc', '2001'), " +
                     "('Trần Kiều Ân', '2002'), " +
                     "('Kiều Phong', '2003')";
+            String sqlInsertLoaiSach = "insert into LoaiSach(tenLoai) values " +
+                    "('Sống thực tế giữa đời thực dụng'), " +
+                    "('Đừng bao giờ đi ăn một mình'), " +
+                    "('Giết chết con quỷ trong bạn')";
+
+
 
             DbHelper dbHelper = new DbHelper(this);
             SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
             sqLiteDatabase.execSQL(sqlInsertThuThu);
             sqLiteDatabase.execSQL(sqlInsertThanhVien);
+            sqLiteDatabase.execSQL(sqlInsertLoaiSach);
 
         }else{
             Log.d("***", "đã có dl");
