@@ -34,6 +34,7 @@ public class PhieuMuonDAO {
         values.put("ngay", sdf.format(obj.getNgay()));
         values.put("tienThue", obj.getTienThue());
         values.put("traSach", obj.getTraSach());
+        values.put("soLuong", obj.getSoLuong());
         return db.insert("PhieuMuon", null, values);
     }
     public int update(PhieuMuon obj){
@@ -44,6 +45,7 @@ public class PhieuMuonDAO {
         values.put("ngay", sdf.format(obj.getNgay()));
         values.put("tienThue", obj.getTienThue());
         values.put("traSach", obj.getTraSach());
+        values.put("soLuong", obj.getSoLuong());
 
         return db.update("PhieuMuon", values, "maPM=?", new String[]{String.valueOf(obj.getMaPM())});
     }
@@ -59,6 +61,7 @@ public class PhieuMuonDAO {
             obj.setMaPM(Integer.parseInt(c.getString(c.getColumnIndex("maPM"))));
             obj.setMaTT(c.getString(c.getColumnIndex("maTT")));
             obj.setMaTV(Integer.parseInt(c.getString(c.getColumnIndex("maTV"))));
+            obj.setSoLuong(Integer.parseInt(c.getString(c.getColumnIndex("soLuong"))));
             obj.setMaSach(Integer.parseInt(c.getString(c.getColumnIndex("maSach"))));
             obj.setTienThue(Integer.parseInt(c.getString(c.getColumnIndex("tienThue"))));
             try{
@@ -83,7 +86,7 @@ public class PhieuMuonDAO {
     // thống kê top 10
     @SuppressLint("Range")
     public List<Top> getTop(){
-        String sqlTop = "select maSach, count(maSach) as soLuong from PhieuMuon group by maSach order by soLuong DESC LIMIT 10";
+        String sqlTop = "select maSach, sum(soLuong) as tongSoLuong from PhieuMuon group by maSach order by tongSoLuong DESC LIMIT 10";
         List<Top> list = new ArrayList<>();
         SachDAO sachDAO = new SachDAO(context);
         Cursor c = db.rawQuery(sqlTop, null);
@@ -91,7 +94,7 @@ public class PhieuMuonDAO {
             Top top = new Top();
             Sach sach = sachDAO.getId(c.getString(c.getColumnIndex("maSach")));
             top.setTenSach(sach.getTenSach());
-            top.setSoLuong(Integer.parseInt(c.getString(c.getColumnIndex("soLuong"))));
+            top.setSoLuong(Integer.parseInt(c.getString(c.getColumnIndex("tongSoLuong"))));
             list.add(top);
         }
         c.close();

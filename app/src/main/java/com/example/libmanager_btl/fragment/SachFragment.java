@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -127,6 +128,9 @@ public class SachFragment extends Fragment {
         Spinner spinner = dialog.findViewById(R.id.spLoaiSach);
         Button btDontSave = dialog.findViewById(R.id.btDontSaveSach);
         Button btSave = dialog.findViewById(R.id.btSaveSach);
+        EditText edSoLuong = dialog.findViewById(R.id.edSoLuong);
+        ImageButton btPlusSoLuong = dialog.findViewById(R.id.btPlusSoLuong);
+        ImageButton btMinusSoLuong = dialog.findViewById(R.id.btminusSoLuong);
         //
         listLoaiSach = new ArrayList<>();
         loaiSachDb = new LoaiSachDAO(context);
@@ -153,12 +157,28 @@ public class SachFragment extends Fragment {
             edMaSach.setText(String.valueOf(itemSach.getMaSach()));
             edTenSach.setText(itemSach.getTenSach());
             edGiaThue.setText(String.valueOf(itemSach.getGiaThue()));
+            edSoLuong.setText(""+itemSach.getSoLuong());
+            edSoLuong.setEnabled(false);
+            btPlusSoLuong.setVisibility(View.VISIBLE);
+            btMinusSoLuong.setVisibility(View.VISIBLE);
             for(int i = 0; i < listLoaiSach.size(); i++){
                 if(itemSach.getMaLoai() == listLoaiSach.get(i).getMaLoai()){
                     position = i;
                 }
             }
             spinner.setSelection(position);
+            btPlusSoLuong.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+            btMinusSoLuong.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
         btDontSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,13 +191,15 @@ public class SachFragment extends Fragment {
             public void onClick(View v) {
                 String tenSach = edTenSach.getText().toString().trim();
                 String giaThue = edGiaThue.getText().toString().trim();
-                if(tenSach.isEmpty() || giaThue.isEmpty()){
+                String soLuong = edSoLuong.getText().toString().trim();
+                if(tenSach.isEmpty() || giaThue.isEmpty() || soLuong.isEmpty()){
                     Toast.makeText(context, "Vui lòng nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
                 }else{
                     itemSach = new Sach();
                     itemSach.setTenSach(tenSach);
                     itemSach.setMaLoai(maLoaiSach);
                     itemSach.setGiaThue(Integer.parseInt(giaThue));
+                    itemSach.setSoLuong(Integer.parseInt(soLuong));
 
                     if(type == MODE_INSERT){
                         if(sachDb.insert(itemSach)>0){

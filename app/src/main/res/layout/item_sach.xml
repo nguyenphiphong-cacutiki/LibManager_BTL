@@ -44,6 +44,13 @@
                 android:textSize="14dp"
                 android:text="GiaThue"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvSoLuong"
+                android:textSize="14dp"
+                android:text="SoLuong"
+                />
 
         </LinearLayout>
         <ImageView

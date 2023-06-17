@@ -3,6 +3,9 @@ package com.example.libmanager_btl.model;
 import java.util.Date;
 
 public class PhieuMuon {
+    public static final int DA_TRA = 1;
+    public static final int CHUA_TRA = 0;
+
     private int maPM;
     private String maTT;
     private int maTV;
@@ -10,11 +13,12 @@ public class PhieuMuon {
     private Date ngay;
     private int tienThue;
     private int traSach;
+    private int soLuong;
 
     public PhieuMuon() {
     }
 
-    public PhieuMuon(int maPM, String maTT, int maTV, int maSach, Date ngay, int tienThue, int traSach) {
+    public PhieuMuon(int maPM, String maTT, int maTV, int maSach, Date ngay, int tienThue, int traSach, int soLuong) {
         this.maPM = maPM;
         this.maTT = maTT;
         this.maTV = maTV;
@@ -22,6 +26,7 @@ public class PhieuMuon {
         this.ngay = ngay;
         this.tienThue = tienThue;
         this.traSach = traSach;
+        this.soLuong = soLuong;
     }
 
     public int getMaPM() {
@@ -78,5 +83,13 @@ public class PhieuMuon {
 
     public void setTraSach(int traSach) {
         this.traSach = traSach;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 }

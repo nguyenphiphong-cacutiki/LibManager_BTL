@@ -24,8 +24,12 @@ public class DbHelper extends SQLiteOpenHelper {
             "    maSach  INTEGER PRIMARY KEY AUTOINCREMENT," +
             "    tenSach TEXT    NOT NULL," +
             "    giaThue INTEGER NOT NULL," +
-            "    maLoai  INTEGER REFERENCES LoaiSach (maLoai) " +
+            "    maLoai  INTEGER REFERENCES LoaiSach (maLoai), " +
+            "    soLuong  INTEGER" +
             ")";
+
+
+
     private final String CREATE_TABLE_LOAI_SACH = "CREATE TABLE LoaiSach (" +
             "    maLoai  INTEGER PRIMARY KEY AUTOINCREMENT," +
             "    tenLoai TEXT    NOT NULL" +
@@ -36,9 +40,11 @@ public class DbHelper extends SQLiteOpenHelper {
             "    maTV     TEXT    REFERENCES ThanhVien (maTV)," +
             "    maSach   INTEGER REFERENCES Sach (maSach)," +
             "    tienThue INTEGER NOT NULL," +
+            "    soLuong INTEGER NOT NULL," +
             "    ngay     DATE    NOT NULL," +
             "    traSach  INTEGER NOT NULL" +
             ")";
+
 
     public DbHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);

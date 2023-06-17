@@ -125,7 +125,14 @@ public class LoginActivity extends AppCompatActivity {
                     "('Sống thực tế giữa đời thực dụng'), " +
                     "('Đừng bao giờ đi ăn một mình'), " +
                     "('Giết chết con quỷ trong bạn')";
-
+            String sqlInsertSach = "insert into Sach(tenSach, giaThue, maLoai, soLuong) values " +
+                    "('Đắc nhân tâm', '20000', '1', '3')," +
+                    "('Sự im lặng của bầy cừu', '30000', '1', '5')," +
+                    "('Không gia đình', '25000', '2', '8')";
+            String sqlInsertPhieuMuon = "insert into PhieuMuon(maTT, maTV, maSach, tienThue, soLuong, ngay, traSach) values" +
+                    "('thuthu01', '1', '1', '20000', '2', '2022-12-1', '1'), " +
+                    "('thuthu01', '1', '2', '30000', '3', '2022-12-2', '-1'), " +
+                    "('thuthu02', '1', '2', '40000', '4', '2022-12-3', '1')";
 
 
             DbHelper dbHelper = new DbHelper(this);
@@ -133,6 +140,8 @@ public class LoginActivity extends AppCompatActivity {
             sqLiteDatabase.execSQL(sqlInsertThuThu);
             sqLiteDatabase.execSQL(sqlInsertThanhVien);
             sqLiteDatabase.execSQL(sqlInsertLoaiSach);
+            sqLiteDatabase.execSQL(sqlInsertPhieuMuon);
+            sqLiteDatabase.execSQL(sqlInsertSach);
 
         }else{
             Log.d("***", "đã có dl");

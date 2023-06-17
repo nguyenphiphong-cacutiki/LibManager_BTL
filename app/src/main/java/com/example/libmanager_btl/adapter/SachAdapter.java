@@ -26,7 +26,7 @@ public class SachAdapter extends ArrayAdapter<Sach> {
     private SachDAO dao;
     private SachFragment sachFragment;
     private List<Sach> list;
-    private TextView tvMaSach, tvTenSach, tvMaLoaiSach, tvGiaThue;
+    private TextView tvMaSach, tvTenSach, tvMaLoaiSach, tvGiaThue, tvSoLuong;
     private ImageView imgDelete;
 
 
@@ -61,11 +61,13 @@ public class SachAdapter extends ArrayAdapter<Sach> {
             tvMaLoaiSach = v.findViewById(R.id.tvLoaiSach);
             tvGiaThue = v.findViewById(R.id.tvGiaThue);
             imgDelete = v.findViewById(R.id.imgDeleteLS);
+            tvSoLuong = v.findViewById(R.id.tvSoLuong);
             //
             tvMaSach.setText("Mã sách: "+sach.getMaSach());
             tvTenSach.setText("Tên sách: "+sach.getTenSach());
             tvMaLoaiSach.setText("Loại sách: "+loaiSach.getTenLoai());
             tvGiaThue.setText("Giá thuê: "+sach.getGiaThue());
+            tvSoLuong.setText("Số lượng: "+ sach.getSoLuong());
 
             imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override

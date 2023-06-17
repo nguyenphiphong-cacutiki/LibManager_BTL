@@ -44,7 +44,7 @@ public class DemoDb {
         return random.nextInt(100) +2;
     }
     public void sach(){
-        Sach sach = new Sach(2, "Book", 25000, 12);
+        Sach sach = new Sach(2, "Book", 25000, 12, 1);
         Log.d(TAG, "hello sach");
         if(sachDAO.insert(sach) > 0){
             Log.i(TAG, "sach ok"  );
